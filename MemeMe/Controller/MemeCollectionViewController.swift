@@ -6,7 +6,6 @@
 //  Copyright © 2018 Abdulaziz Alobaili. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 class MemeCollectionViewController: UICollectionViewController {
@@ -17,6 +16,7 @@ class MemeCollectionViewController: UICollectionViewController {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         return appDelegate.memes
     }
+    
     
     // MARK: Life Cycle
     
@@ -35,26 +35,40 @@ class MemeCollectionViewController: UICollectionViewController {
         collectionView.reloadData()
     }
     
+    
 }
 
 extension MemeCollectionViewController {
     
     // MARK: Required functions for CollectionView
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    
+    override func collectionView(
+        _ collectionView: UICollectionView,
+        numberOfItemsInSection section: Int
+    ) -> Int {
         return memes.count
     }
     
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MemeCollectionViewCell", for: indexPath) as! MemeCollectionViewCell
+    override func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MemeCollectionViewCell",
+                                                      for: indexPath) as! MemeCollectionViewCell
         
         cell.memeImageView.image = memes[indexPath.row].memedImage
         
         return cell
     }
     
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    override func collectionView(
+        _ collectionView: UICollectionView,
+        didSelectItemAt indexPath: IndexPath
+    ) {
         // Grab the DetailVC from Storyboard
-        let editorController = self.storyboard!.instantiateViewController(withIdentifier: "MemeDetailViewController") as! MemeDetailViewController
+        let editorController = self.storyboard!.instantiateViewController(
+            withIdentifier: "MemeDetailViewController"
+        ) as! MemeDetailViewController
         
         //Populate view controller with data from the selected item
         editorController.meme = memes[(indexPath as NSIndexPath).row]
@@ -62,4 +76,6 @@ extension MemeCollectionViewController {
         // Present the view controller using navigation
         navigationController!.pushViewController(editorController, animated: true)
     }
+    
+    
 }

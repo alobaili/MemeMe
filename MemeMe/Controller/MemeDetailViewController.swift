@@ -6,7 +6,6 @@
 //  Copyright © 2018 Abdulaziz Alobaili. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 class MemeDetailViewController: UIViewController {
@@ -22,7 +21,7 @@ class MemeDetailViewController: UIViewController {
         super.viewDidLoad()
         
         memeImage.image = meme.memedImage
-        
     }
+    
     
 }

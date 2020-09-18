@@ -6,7 +6,6 @@
 //  Copyright © 2018 Abdulaziz Alobaili. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 class MemeTableViewCell: UITableViewCell {
@@ -14,4 +13,6 @@ class MemeTableViewCell: UITableViewCell {
     @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var bottomLabel: UILabel!
     @IBOutlet weak var memeImageView: UIImageView!
+    
+    
 }
