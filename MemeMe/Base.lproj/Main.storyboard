@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="B1U-AV-Kjj">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="B1U-AV-Kjj">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -34,7 +33,7 @@
                 <navigationController id="UgB-rc-Gtf" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" image="collection_30x30" id="fzJ-z6-xuJ"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="NtH-8b-CWq">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -52,7 +51,7 @@
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="sIN-Al-SMw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="LtQ-Ig-ZpP">
                             <size key="itemSize" width="138" height="147"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -104,7 +103,7 @@
                 <navigationController id="sfo-mJ-SqE" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="table_30x30" id="YYL-Sa-kja"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="UqG-qu-eeo">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -122,17 +121,17 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="y7w-u7-dlB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MemeTableViewCell" rowHeight="107" id="rU3-GU-bco" customClass="MemeTableViewCell" customModule="MemeMe" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="107"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rU3-GU-bco" id="gg8-Tm-Y08">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="106.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="107"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="w3y-xo-LWa">
-                                            <rect key="frame" x="16" y="8" width="95" height="90.5"/>
+                                            <rect key="frame" x="16" y="8" width="95" height="91"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="95" id="oMa-bb-LvD"/>
                                             </constraints>
@@ -195,17 +194,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iY7-gb-sBc">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="ulW-iI-xMm"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="iY7-gb-sBc" firstAttribute="bottom" secondItem="ulW-iI-xMm" secondAttribute="bottom" id="Eoe-e4-Q9g"/>
                             <constraint firstItem="iY7-gb-sBc" firstAttribute="top" secondItem="ulW-iI-xMm" secondAttribute="top" id="aq5-LR-Iig"/>
                             <constraint firstItem="iY7-gb-sBc" firstAttribute="trailing" secondItem="ulW-iI-xMm" secondAttribute="trailing" id="bVT-6H-eNU"/>
                             <constraint firstItem="iY7-gb-sBc" firstAttribute="leading" secondItem="ulW-iI-xMm" secondAttribute="leading" id="iJ8-U9-zXt"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="ulW-iI-xMm"/>
                     </view>
                     <connections>
                         <outlet property="memeImage" destination="iY7-gb-sBc" id="4wf-bG-52x"/>
@@ -242,7 +241,7 @@
                                 </items>
                             </toolbar>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aj5-u5-KQy" userLabel="Top Toolbar">
-                                <rect key="frame" x="0.0" y="64" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                                 <items>
                                     <barButtonItem systemItem="action" id="mEV-57-jER" userLabel="Share Button Item">
                                         <connections>
@@ -258,11 +257,10 @@
                                 </items>
                             </toolbar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="S2B-p9-sZw">
-                                <rect key="frame" x="0.0" y="108" width="375" height="515"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="535"/>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" textAlignment="natural" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="TXM-Uj-5T6">
-                                <rect key="frame" x="0.0" y="108" width="375" height="17"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="18.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                                 <connections>
@@ -270,8 +268,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" textAlignment="natural" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="Bhd-HV-rEy">
-                                <rect key="frame" x="0.0" y="606" width="375" height="17"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="0.0" y="604.5" width="375" height="18.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                                 <connections>
@@ -279,7 +276,8 @@
                                 </connections>
                             </textField>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="aj5-u5-KQy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="0CM-00-aIY"/>
                             <constraint firstItem="JE8-ka-AwN" firstAttribute="top" secondItem="Bhd-HV-rEy" secondAttribute="bottom" id="3PV-Gt-uZg"/>
@@ -298,7 +296,6 @@
                             <constraint firstItem="TXM-Uj-5T6" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="i6V-pv-Cif"/>
                             <constraint firstItem="TXM-Uj-5T6" firstAttribute="top" secondItem="aj5-u5-KQy" secondAttribute="bottom" id="zBu-Qe-kZC"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="bottomTextField" destination="Bhd-HV-rEy" id="a7b-S7-W9T"/>
@@ -315,11 +312,14 @@
             <point key="canvasLocation" x="1322" y="-683"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="collection_30x30" width="30" height="30"/>
-        <image name="table_30x30" width="30" height="30"/>
-    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="IBf-YK-e52"/>
     </inferredMetricsTieBreakers>
+    <resources>
+        <image name="collection_30x30" width="30" height="30"/>
+        <image name="table_30x30" width="30" height="30"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
