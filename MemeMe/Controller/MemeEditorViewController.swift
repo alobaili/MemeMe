@@ -12,7 +12,6 @@ class MemeEditorViewController: UIViewController {
 
     @IBOutlet weak var bottomToolbar: UIToolbar!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
-    @IBOutlet weak var topToolbar: UIToolbar!
     @IBOutlet weak var shareButton: UIBarButtonItem!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var topTextField: UITextField!
@@ -44,9 +43,6 @@ class MemeEditorViewController: UIViewController {
         
         topTextField.defaultTextAttributes = memeTextAttributes
         bottomTextField.defaultTextAttributes = memeTextAttributes
-        
-        // Hide the navigation bar because "Cancel" button is used to go back to sent memes
-        navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -67,8 +63,7 @@ class MemeEditorViewController: UIViewController {
     // MARK: Return to sent memes when "Cancel" button is pressed
     
     @IBAction func returnToSentMemes() {
-        // Pop the editor when the cancel button is pressed
-        navigationController?.popViewController(animated: true)
+        dismiss(animated: true)
     }
     
     // MARK: Keyboard behaviour
@@ -131,8 +126,7 @@ class MemeEditorViewController: UIViewController {
     
     func prepareUI(isGeneratingMemedImage: Bool) {
         bottomToolbar.isHidden = isGeneratingMemedImage
-        topToolbar.isHidden = isGeneratingMemedImage
-        self.navigationController?.setNavigationBarHidden(isGeneratingMemedImage, animated: false)
+        self.navigationController?.setNavigationBarHidden(isGeneratingMemedImage, animated: true)
     }
     
     // MARK: Generate Meme Image
