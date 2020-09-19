@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class MemeEditorViewController: UIViewController {
 
@@ -16,6 +17,7 @@ class MemeEditorViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
+    @IBOutlet var memeContainer: UIView!
     
     @IBOutlet var topLabelTopConstraint: NSLayoutConstraint!
     @IBOutlet var topLabelLeadingConstraint: NSLayoutConstraint!
@@ -175,16 +177,30 @@ class MemeEditorViewController: UIViewController {
     
     func generateMemedImage() -> UIImage {
         // Hide toolbar and navbar
-        prepareUI(isGeneratingMemedImage: true)
+//        prepareUI(isGeneratingMemedImage: true)
+        
+        var imageFrame = CGRect(origin: .zero, size: imageView.scaledSize)
+        
+        if imageView.scaledSize.width == imageView.frame.width {
+            // image fills view along width, calculate Y constant
+            imageFrame.origin.y = (imageView.frame.height - imageView.scaledSize.height) / 2
+        } else {
+            // image fills view along height, calculate X constant
+            imageFrame.origin.x = (imageView.frame.width - imageView.scaledSize.width) / 2
+        }
         
         // Render view to an image
-        UIGraphicsBeginImageContext(view.frame.size)
-        view.drawHierarchy(in: view.frame, afterScreenUpdates: true)
-        let memedImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
-        UIGraphicsEndImageContext()
+//        UIGraphicsBeginImageContext(imageView.scaledSize)
+//        view.drawHierarchy(in: imageFrame, afterScreenUpdates: true)
+//        let memedImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+//        UIGraphicsEndImageContext()
+        let renderer = UIGraphicsImageRenderer(bounds: imageFrame)
+        let memedImage = renderer.image { (rendererContext) in
+            memeContainer.layer.render(in: rendererContext.cgContext)
+        }
         
         // Show toolbar and navbar
-        prepareUI(isGeneratingMemedImage: false)
+//        prepareUI(isGeneratingMemedImage: false)
         
         return memedImage
     }
