@@ -17,6 +17,13 @@ class MemeEditorViewController: UIViewController {
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
     
+    @IBOutlet var topLabelTopConstraint: NSLayoutConstraint!
+    @IBOutlet var topLabelLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet var topLabelTrailingConstraint: NSLayoutConstraint!
+    @IBOutlet var bottomLabelBottomConstraint: NSLayoutConstraint!
+    @IBOutlet var bottomLabelLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet var bottomLabelTrailingConstraint: NSLayoutConstraint!
+    
     // Used to identify which textField the user is currently editing
     var currentTextField: UITextField?
     
@@ -25,9 +32,7 @@ class MemeEditorViewController: UIViewController {
     
     // MARK: View Life Cycle
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    fileprivate func configureTopAndBottomLabels() {
         // Make the text centered inside the meme text field
         let paragraph = NSMutableParagraphStyle()
         paragraph.alignment = .center
@@ -45,6 +50,12 @@ class MemeEditorViewController: UIViewController {
         bottomTextField.defaultTextAttributes = memeTextAttributes
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        configureTopAndBottomLabels()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -58,6 +69,37 @@ class MemeEditorViewController: UIViewController {
         
         // bring back the navigation bar before popping the view
         navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    fileprivate func recalculateLabelConstraints() {
+        let scaledSize = imageView.scaledSize
+        var imageFrame = CGRect(origin: .zero, size: scaledSize)
+        
+        if scaledSize.width == imageView.frame.width {
+            // image fills view along width, calculate Y constant
+            imageFrame.origin.y = (imageView.frame.height - scaledSize.height) / 2
+        } else {
+            // image fills view along height, calculate X constant
+            imageFrame.origin.x = (imageView.frame.width - scaledSize.width) / 2
+        }
+        
+        topLabelTopConstraint.constant = imageFrame.origin.y + 4
+        topLabelLeadingConstraint.constant = imageFrame.origin.x
+        topLabelTrailingConstraint.constant = ((imageView.frame.width -
+                                                    imageFrame.width -
+                                                    imageFrame.origin.x) * -1) - 4
+        
+        bottomLabelBottomConstraint.constant = ((imageView.frame.height -
+                                                    imageFrame.height -
+                                                    imageFrame.origin.y) * -1) - 4
+        bottomLabelLeadingConstraint.constant = imageFrame.origin.x
+        bottomLabelTrailingConstraint.constant = ((imageView.frame.width -
+                                                    imageFrame.width -
+                                                    imageFrame.origin.x) * -1) - 4
+    }
+    
+    override func viewDidLayoutSubviews() {
+        recalculateLabelConstraints()
     }
     
     // MARK: Return to sent memes when "Cancel" button is pressed
@@ -196,6 +238,7 @@ extension MemeEditorViewController: UIImagePickerControllerDelegate, UINavigatio
     ) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             imageView.image = image
+            recalculateLabelConstraints()
         }
         
         dismiss(animated: true, completion: nil)
@@ -229,4 +272,3 @@ extension MemeEditorViewController: UITextFieldDelegate {
     
     
 }
-

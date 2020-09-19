@@ -222,7 +222,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JE8-ka-AwN" userLabel="Bottom Toolbar">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="JE8-ka-AwN" userLabel="Bottom Toolbar">
                                 <rect key="frame" x="0.0" y="603" width="375" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="K6C-ES-tO9"/>
@@ -244,7 +244,7 @@
                                 <rect key="frame" x="0.0" y="56" width="375" height="547"/>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" textAlignment="natural" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="TXM-Uj-5T6">
-                                <rect key="frame" x="0.0" y="56" width="375" height="18.5"/>
+                                <rect key="frame" x="4" y="60" width="367" height="19"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                                 <connections>
@@ -252,7 +252,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" textAlignment="natural" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="Bhd-HV-rEy">
-                                <rect key="frame" x="0.0" y="584.5" width="375" height="18.5"/>
+                                <rect key="frame" x="4" y="580.5" width="367" height="18.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                                 <connections>
@@ -263,19 +263,21 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="JE8-ka-AwN" firstAttribute="top" secondItem="Bhd-HV-rEy" secondAttribute="bottom" id="3PV-Gt-uZg"/>
-                            <constraint firstItem="S2B-p9-sZw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="4vh-Wi-eq5"/>
-                            <constraint firstItem="Bhd-HV-rEy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="8fe-t5-Cpm"/>
+                            <constraint firstItem="Bhd-HV-rEy" firstAttribute="leading" secondItem="S2B-p9-sZw" secondAttribute="leading" constant="4" id="1D9-eE-WcC"/>
+                            <constraint firstItem="S2B-p9-sZw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="2gJ-TF-kFX"/>
+                            <constraint firstItem="Bhd-HV-rEy" firstAttribute="trailing" secondItem="S2B-p9-sZw" secondAttribute="trailing" constant="-4" id="3ge-mR-QYz"/>
+                            <constraint firstItem="S2B-p9-sZw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="4xe-zg-qnv"/>
+                            <constraint firstItem="S2B-p9-sZw" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="top" id="8ZX-3B-XC0"/>
+                            <constraint firstItem="JE8-ka-AwN" firstAttribute="top" secondItem="S2B-p9-sZw" secondAttribute="bottom" id="AUx-br-Cuz"/>
                             <constraint firstItem="JE8-ka-AwN" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="CWE-wy-UqB"/>
+                            <constraint firstItem="S2B-p9-sZw" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="GIW-sh-uYn"/>
                             <constraint firstItem="JE8-ka-AwN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="LB0-jP-F8b"/>
                             <constraint firstItem="JE8-ka-AwN" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="LFx-va-cjW"/>
-                            <constraint firstItem="TXM-Uj-5T6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="NGd-cW-ZLd"/>
-                            <constraint firstItem="Bhd-HV-rEy" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="NHX-s1-J4d"/>
-                            <constraint firstItem="TXM-Uj-5T6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="W9J-na-Ddn"/>
-                            <constraint firstItem="S2B-p9-sZw" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="YQK-t2-lyG"/>
-                            <constraint firstItem="JE8-ka-AwN" firstAttribute="top" secondItem="S2B-p9-sZw" secondAttribute="bottom" id="e7M-cZ-qeZ"/>
-                            <constraint firstItem="TXM-Uj-5T6" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="i6V-pv-Cif"/>
-                            <constraint firstItem="S2B-p9-sZw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="mOK-ki-2cs"/>
+                            <constraint firstItem="Bhd-HV-rEy" firstAttribute="bottom" secondItem="S2B-p9-sZw" secondAttribute="bottom" constant="-4" id="eNl-MF-ZsB"/>
+                            <constraint firstItem="JE8-ka-AwN" firstAttribute="top" relation="greaterThanOrEqual" secondItem="S2B-p9-sZw" secondAttribute="bottom" id="gzH-dx-bcf"/>
+                            <constraint firstItem="TXM-Uj-5T6" firstAttribute="trailing" secondItem="S2B-p9-sZw" secondAttribute="trailing" constant="-4" id="pwe-6b-Bte"/>
+                            <constraint firstItem="TXM-Uj-5T6" firstAttribute="leading" secondItem="S2B-p9-sZw" secondAttribute="leading" constant="4" id="tfj-9G-Vei"/>
+                            <constraint firstItem="TXM-Uj-5T6" firstAttribute="top" secondItem="S2B-p9-sZw" secondAttribute="top" constant="4" id="zZ4-KY-E0L"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="aqf-2N-nW3">
@@ -291,11 +293,17 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="bottomLabelBottomConstraint" destination="eNl-MF-ZsB" id="cRy-nN-VEa"/>
+                        <outlet property="bottomLabelLeadingConstraint" destination="1D9-eE-WcC" id="57L-yj-PPA"/>
+                        <outlet property="bottomLabelTrailingConstraint" destination="3ge-mR-QYz" id="KU7-wt-2O1"/>
                         <outlet property="bottomTextField" destination="Bhd-HV-rEy" id="a7b-S7-W9T"/>
                         <outlet property="bottomToolbar" destination="JE8-ka-AwN" id="ZVP-tC-nIW"/>
                         <outlet property="cameraButton" destination="SET-7o-Fl2" id="zY0-Ya-Qd5"/>
                         <outlet property="imageView" destination="S2B-p9-sZw" id="rDP-5Y-rtL"/>
                         <outlet property="shareButton" destination="mEV-57-jER" id="MH8-eG-pMk"/>
+                        <outlet property="topLabelLeadingConstraint" destination="tfj-9G-Vei" id="uwb-lV-77G"/>
+                        <outlet property="topLabelTopConstraint" destination="zZ4-KY-E0L" id="ssl-xb-Fp2"/>
+                        <outlet property="topLabelTrailingConstraint" destination="pwe-6b-Bte" id="y9r-j6-fXh"/>
                         <outlet property="topTextField" destination="TXM-Uj-5T6" id="V7b-aa-0th"/>
                     </connections>
                 </viewController>
@@ -324,7 +332,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="IBf-YK-e52"/>
+        <segue reference="SsA-B5-nWc"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="collection_30x30" width="30" height="30"/>
