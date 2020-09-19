@@ -38,14 +38,15 @@ class MemeEditorViewController: UIViewController {
             .strokeColor: UIColor.black,
             .foregroundColor: UIColor.white,
             .font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-            .strokeWidth: -4, .paragraphStyle: paragraph
+            .strokeWidth: -4,
+            .paragraphStyle: paragraph
         ]
         
         topTextField.defaultTextAttributes = memeTextAttributes
         bottomTextField.defaultTextAttributes = memeTextAttributes
         
         // Hide the navigation bar because "Cancel" button is used to go back to sent memes
-        navigationController?.setNavigationBarHidden(true, animated: false)
+        navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -60,7 +61,7 @@ class MemeEditorViewController: UIViewController {
         unsubscribeFromKeyboardNotifications()
         
         // bring back the navigation bar before popping the view
-        navigationController?.setNavigationBarHidden(false, animated: false)
+        navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     // MARK: Return to sent memes when "Cancel" button is pressed
@@ -71,7 +72,8 @@ class MemeEditorViewController: UIViewController {
     }
     
     // MARK: Keyboard behaviour
-    @objc func keyboardWillShow(_ notification:Notification) {
+    
+    @objc func keyboardWillShow(_ notification: Notification) {
         // Move view only if currentTextField is bottomTextField.
         // I used tags to identify textfields.
         if currentTextField?.tag == 1 {
@@ -79,17 +81,18 @@ class MemeEditorViewController: UIViewController {
         }
     }
     
-    @objc func keyboardWillHide(_ notification:Notification) {
+    @objc func keyboardWillHide(_ notification: Notification) {
         view.frame.origin.y = 0
     }
     
-    func getKeyboardHeight(_ notification:Notification) -> CGFloat {
+    func getKeyboardHeight(_ notification: Notification) -> CGFloat {
         let userInfo = notification.userInfo
         let keyboardSize = userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue // of CGRect
         return keyboardSize.cgRectValue.height
     }
     
     // MARK: Keyboard Notifications (subscribtions)
+    
     func subscribeToKeyboardNotifications() {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(keyboardWillHide(_ :)),
@@ -112,7 +115,7 @@ class MemeEditorViewController: UIViewController {
     
     // MARK: Creating and Saving the Meme
     
-    func save(){
+    func save() {
         // Update the meme
         let meme = Meme(topText: topTextField.text!,
                         bottomText: bottomTextField.text!,
@@ -139,9 +142,9 @@ class MemeEditorViewController: UIViewController {
         prepareUI(isGeneratingMemedImage: true)
         
         // Render view to an image
-        UIGraphicsBeginImageContext(self.view.frame.size)
-        view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
-        let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsBeginImageContext(view.frame.size)
+        view.drawHierarchy(in: view.frame, afterScreenUpdates: true)
+        let memedImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         
         // Show toolbar and navbar
@@ -151,6 +154,7 @@ class MemeEditorViewController: UIViewController {
     }
     
     // MARK: Share Meme
+    
     @IBAction func share(_ sender: Any) {
         let memedImage = generateMemedImage()
         
@@ -158,18 +162,11 @@ class MemeEditorViewController: UIViewController {
                                                   applicationActivities: nil)
         
         controller.completionWithItemsHandler = {
-            (activityType: UIActivity.ActivityType?,
-             completed: Bool,
-             returnedItems: [Any]?,
-             error: Error?) in
-            
-            guard completed else {
-                // User canceled
-                return
-            }
+            [weak self] (activityType, completed, returnedItems, error) in
+            guard completed else { return } // User canceled
             
             // User completed activity
-            self.save()
+            self?.save()
         }
         
         present(controller, animated: true, completion: nil)
@@ -198,6 +195,7 @@ extension MemeEditorViewController: UIImagePickerControllerDelegate, UINavigatio
     }
     
     // MARK: Image Picker
+    
     func imagePickerController(
         _ picker: UIImagePickerController,
         didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]

@@ -32,6 +32,8 @@ class MemeCollectionViewController: UICollectionViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         collectionView.reloadData()
     }
     
@@ -56,7 +58,7 @@ extension MemeCollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MemeCollectionViewCell",
                                                       for: indexPath) as! MemeCollectionViewCell
         
-        cell.memeImageView.image = memes[indexPath.row].memedImage
+        cell.memeImageView.image = memes[indexPath.item].memedImage
         
         return cell
     }
@@ -71,7 +73,7 @@ extension MemeCollectionViewController {
         ) as! MemeDetailViewController
         
         //Populate view controller with data from the selected item
-        editorController.meme = memes[(indexPath as NSIndexPath).row]
+        editorController.meme = memes[indexPath.item]
         
         // Present the view controller using navigation
         navigationController!.pushViewController(editorController, animated: true)

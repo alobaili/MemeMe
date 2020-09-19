@@ -55,7 +55,7 @@ extension MemeTableViewController {
         ) as! MemeDetailViewController
         
         //Populate view controller with data from the selected item
-        editorController.meme = memes[(indexPath as NSIndexPath).row]
+        editorController.meme = memes[indexPath.row]
         
         // Present the view controller using navigation
         navigationController!.pushViewController(editorController, animated: true)
